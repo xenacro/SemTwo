@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>CircleProject</title>
+        <style type="text/css">
+            body {
+                font-family: sans-serif;
+            }
+            #js-holder {
+                float: left;
+                width: 80%;
+                height: 1000px;
+                background-color: rgba(87, 120, 97, 0.8);
+            }
+            #shape {
+                width: 200px;
+                height: 200px;
+                background-color: red;
+                display: none;
+                position: relative;
+                
+            }
+            #info {
+                float: left;
+                width: 18%;
+                height: 1000px;
+                background-color: rgba(87, 120, 97, 0.8);
+                color: white;
+            }
+            .bold {
+                font-weight: bold;
+            }
+            a {
+                text-decoration: none;
+                color: aqua;
+                
+            }
+            a:hover {
+                color: aliceblue;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>The AP Project in javascript</h1>
+        <h1>Test Your Reactions!</h1>
+        <p>Click on the boxes and circles as quickly as you can!</p>
+        <p class="bold">Your Time: <span id="timeTaken"></span></p>
+        <div id="js-holder">
+            <div id="shape">
+
+            </div>
+        </div>
+        <div id="info">
+            <header><h1>NAMASTE!!</h1></header>
+	        <br>
+            <div>
+                <h3>I am Ayush Kumar from CSE rolled at 11911077 at <a href="#">IIIT Sonepat</a></h3>
+                <h4>If you want to know more about me:</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com/xenacro" target="_blank">Ayush Kumar @Facebook</a></li>
+                    <li><a href="https://www.instagram.com/xenacro/" target="_blank">Ayush Kumar @Instagram</a></li>
+                    <li><a href="https://twitter.com/xenacro" target="_blank">Ayush Kumar @Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/in/ayush-kumar-39930a18b" target="_blank">Ayush Kumar @LinkedIn</a></li>
+                </ul>
+                You can also mail me @ kayush054@gmail.com. <br>
+                See this HTML <a href="https://github.com/xenacro/AP_js_Project" target="_blank">Here</a> or my other <a href="https://github.com/xenacro" target="_blank">Repository</a>.
+            </div>
+    
+        </div>
+        <script type="text/javascript">
+            var start = new Date().getTime();
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF'.split('');
+                var color = '#';
+                for (var i=0; i<6; i++){
+                    color += letters[Math.floor(Math.random()*16)];
+                }
+
+                return color;
+            }
+            function makeShapeAppear() {
+                var top = Math.random()*400;
+                var left = Math.random()*400;
+                var width = (Math.random()*200) + 100;
+                if (Math.random() > 0.5) {
+                    document.getElementById("shape").style.borderRadius = "50%";
+                }
+                else {
+                    document.getElementById("shape").style.borderRadius = "0";
+                }
+                document.getElementById("shape").style.backgroundColor = getRandomColor();
+                document.getElementById("shape").style.width = width + "px";
+                document.getElementById("shape").style.height = width + "px";
+                document.getElementById("shape").style.top = top + "px";
+                document.getElementById("shape").style.left = left + "px";
+                document.getElementById("shape").style.display = "block";
+                start = new Date().getTime();
+            }
+            function appearAfterDelay() {
+                setTimeout(makeShapeAppear, Math.random()*2000);
+            }
+            appearAfterDelay();
+            document.getElementById("shape").onclick = function() {
+                document.getElementById("shape").style.display = "none";
+                var end = new Date().getTime();
+                var timeTaken = (end-start) / 1000;
+                document.getElementById("timeTaken").innerHTML = timeTaken + "s";
+                appearAfterDelay();
+            }
+        </script>
+    </body>
+</html>

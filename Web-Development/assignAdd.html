@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Numbers</title>
+    </head>
+    <body>
+        <script>
+            function addNum(firstNo,secondNo)
+            {
+                var val = firstNo+" and "+secondNo+" is -->";
+                function add()
+                {
+                    return val+(firstNo+secondNo);
+                }
+                return add();
+            }
+            var a=Number(prompt("Enter Value Of a for ADD"));
+            var b=Number(prompt("Enter Value Of b for ADD"));
+            var Result = addNum(a,b);
+            document.write("<p>Sum Of "+Result+"</p><br>");
+        </script>
+    </body>
+</html>
